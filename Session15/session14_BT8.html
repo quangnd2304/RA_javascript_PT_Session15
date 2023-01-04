@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 8</title>
+</head>
+
+<body>
+    Seconds:<input type="text" id="seconds" name="seconds" /><br>
+    Hour:<input type="text" name="hour" id="hour" readonly />
+    Minute:<input type="text" name="minute" id="minute" readonly />
+    Second:<input type="text" name="second" id="second" readonly />
+    <button id="btnStart">Start</button>
+    <script>
+        function convertTime(seconds) {
+            console.log(seconds);
+            //B2. Chuyển sang giờ, phút giây
+            let hour = Math.floor(seconds / 3600);
+            seconds = seconds % 3600;
+            let minute = Math.floor(seconds / 60);
+            let second = seconds % 60;
+            //Gán giá trị giờ, phút, giây vào các ô input
+            let hourInp = document.getElementById('hour');
+            let minuteInp = document.getElementById('minute');
+            let secondInp = document.getElementById("second");
+            hourInp.value = hour;
+            minuteInp.value = minute;
+            secondInp.value = second;
+        }
+        let secondsInput = document.getElementById('seconds');
+        secondsInput.addEventListener("change", function () {
+            //B1. Lấy số giây nhập vào từ ô input
+            let seconds = parseInt(secondsInput.value);
+            convertTime(seconds);
+        })
+        let btnStart = document.getElementById('btnStart');
+        btnStart.addEventListener("click", function () {
+            let seconds = parseInt(secondsInput.value);
+            let intervalId = setInterval(function () {
+                seconds -= 1;
+                if (seconds == 0) {
+                    alert("TIMEOUT");
+                    clearInterval(intervalId);
+                }
+                convertTime(seconds);
+            }, 1000)
+        })
+
+    </script>
+</body>
+
+</html>

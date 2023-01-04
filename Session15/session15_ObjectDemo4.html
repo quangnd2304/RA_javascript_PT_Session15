@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - Demo4</title>
+</head>
+
+<body>
+    <script>
+        // Xây dựng Class và khởi tạo object từ constructor của class
+        class Person {
+            constructor(personName, age, sex, address) {
+                this.personName = personName,
+                    this.age = age,
+                    this.sex = sex,
+                    this.address = address
+            }
+            getPersonName() {
+                return this.personName;
+            }
+            setPersonName(personName) {
+                this.personName = personName;
+            }
+            getAge() {
+                return this.age;
+            }
+            setAge(age) {
+                this.age = age;
+            }
+            showInfo() {
+                return this.personName + "-" + this.age;
+            }
+        }
+        //Khởi tạo đối tượng
+        let person = new Person("Nguyễn Văn A", 20, "Nam", "Hà Nội");
+        console.log("Thông tin person:", person.showInfo());
+        //Tính bao đóng: thay đổi tên người thành Trần Văn B
+        person.setPersonName("Trần Văn B");
+        //In tên person sau khi thay đổi
+        console.log("Tên người sau khi thay đổi: ", person.getPersonName());
+    </script>
+</body>
+
+</html>

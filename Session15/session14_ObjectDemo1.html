@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - Demo1</title>
+</head>
+
+<body>
+    <script>
+        // Khởi tạo đối tượng với Literal
+        // Khởi tạo đối tượng student bao gồm các đặc điểm: mã sv, tên sv, tuổi, các hành vi: nói,tính tổng 2 số
+        let student = {
+            //Thuộc tính mô tả các đặc điểm của đối tượng trong thế giới thực
+            studentId: "SV001",
+            studentName: "Nguyễn Văn A",
+            age: 20,
+            // Phương thức mô tả các hành vi của đối tượng
+            talk: function () {
+                console.log("Hello!");
+            },
+            add: function (num1, num2) {
+                return num1 + num2;
+            }
+        }
+        //Truy cập vào các  thuộc tính và phương thức của đối tượng
+        console.log("Tên sinh viên:", student.studentName);
+        console.log("Tuổi sinh viên: ", student["age"]);
+        console.log("Tổng 2 số: ", student.add(5, 7));
+    </script>
+</body>
+
+</html>

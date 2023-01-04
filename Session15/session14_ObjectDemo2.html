@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - Demo2</title>
+</head>
+
+<body>
+    <script>
+        // Khai báo đối tượng với Object constructor function
+        function Book(bookId, bookName, price) {
+            this.bookId = bookId,
+                this.bookName = bookName,
+                this.price = price,
+                this.hello = function () {
+                    console.log("Xin chào các bạn");
+                }
+        }
+        //Khởi tạo đối tượng
+        let book = new Book("B001", "Văn Học", "10000");
+        // In ra tên sách
+        console.log("Tên sách:", book.bookName);
+
+        //Thêm thuộc tính cho đối tượng
+        book.author = "Văn Cao";
+        //Thêm phương thức cho đối tượng
+        book.showPrice = function () {
+            console.log("Giá sách: ", this.price);
+        }
+        console.log("Sách", book);
+        book.showPrice();
+
+        // Khai báo và khởi tạo đối tượng sản phẩm bằng Object Constructor function
+        let Product = function (productId, productName, price) {
+            return {
+                productId, productName, price,
+                showInfo: function () {
+                    return "Mã sản phẩm: " + this.productId + "-Tên sản phẩm: " + this.productName;
+                }
+            }
+        }
+        let product = new Product("P001", "Tivi", 5000);
+        console.log("Thông tin sách: ", product.showInfo());
+    </script>
+</body>
+
+</html>
